@@ -38,6 +38,7 @@ The dataset used for this project contains 2,357 images of various skin diseases
 - Vascular lesion
 
 The images were obtained from the International Skin Imaging Collaboration (ISIC) and are sorted by their classification. While the dataset includes various benign and malignant skin conditions, melanoma is the focal point of the project, as it accounts for the majority of skin cancer deaths.
+![alt text](classes.png)
 
 ## CNN Architecture followed
 The convolutional neural network (CNN) is built using Keras' Sequential API. Let's break it down step by step:
@@ -109,21 +110,29 @@ model.add(layers.Rescaling(1./255, input_shape=(180, 180, 3))): This rescales th
     ```
     The final output layer with a number of neurons equal to the number of classes (len(class_names)). It uses the softmax activation function, which converts the output into probability values for each class.
 
+Model Summary
+![alt text](ModelSummary.png)
 ## Conclusions
-- Conclusion 1 from the analysis
-- Conclusion 2 from the analysis
-- Conclusion 3 from the analysis
-- Conclusion 4 from the analysis
+- The data set shows signs of class imbalance, this has been resolved by using augmentor
+![alt text](ClassDistribution.png)
+
+- Model Evaluation
+![alt text](ModelEvaluation.png)
+- The model gradually improved in performance throughout the training, with the validation accuracy (val_accuracy) steadily increasing up to epoch 42 and peaking at 0.78916 (epoch 42). After epoch 42, the validation accuracy plateaued, with minor fluctuations (a slight decrease in later epochs).
+- Test accuracy: 44%
 
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
 
 ## Technologies Used
 - Python
-- pandas
-- numpy
-- matplotlib
-- tensorflow
+- pandas - 2.2.2
+- numpy - 1.26.4
+- matplotlib - 3.10.0
+- seaborn - 0.13.2
+- tensorflow - 2.17.1
+- keras - 3.5.0
+- Augmentor - 0.2.12
 
 
 <!-- As the libraries versions keep on changing, it is recommended to mention the version of library used in this project -->
